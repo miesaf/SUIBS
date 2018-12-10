@@ -20,5 +20,17 @@ Route::get('/logout', function(){
 });
 Auth::routes();
 
-// Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/borrower', 'BorrowerController@index');
+Route::resource('borrower', 'BorrowerController');
+
+
+Route::get('/inventory', 'InventoryController@index');
+Route::resource('inventory', 'InventoryController');
+
+
+Route::get('/borrowInventory', 'BorrowerInventoryController@index');
+
+//Route::get('/borrowInventory', 'BorrowerInventoryController@create');
+
+//Route::resource('/inventory', 'InventoryController');
