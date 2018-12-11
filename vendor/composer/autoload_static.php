@@ -131,6 +131,7 @@ class ComposerStaticInitdadb5c6a45194452e543ace8fabe24e2
         'F' => 
         array (
             'Fideloper\\Proxy\\' => 16,
+            'FarhanWazir\\GoogleMaps\\' => 23,
             'Faker\\' => 6,
         ),
         'E' => 
@@ -350,6 +351,10 @@ class ComposerStaticInitdadb5c6a45194452e543ace8fabe24e2
         'Fideloper\\Proxy\\' => 
         array (
             0 => __DIR__ . '/..' . '/fideloper/proxy/src',
+        ),
+        'FarhanWazir\\GoogleMaps\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/farhanwazir/laravelgooglemaps/src/FarhanWazir/GoogleMaps',
         ),
         'Faker\\' => 
         array (
@@ -1026,6 +1031,10 @@ class ComposerStaticInitdadb5c6a45194452e543ace8fabe24e2
         'Faker\\Provider\\zh_TW\\Text' => __DIR__ . '/..' . '/fzaninotto/faker/src/Faker/Provider/zh_TW/Text.php',
         'Faker\\UniqueGenerator' => __DIR__ . '/..' . '/fzaninotto/faker/src/Faker/UniqueGenerator.php',
         'Faker\\ValidGenerator' => __DIR__ . '/..' . '/fzaninotto/faker/src/Faker/ValidGenerator.php',
+        'FarhanWazir\\GoogleMaps\\Containers\\isInsidePolygon' => __DIR__ . '/..' . '/farhanwazir/laravelgooglemaps/src/FarhanWazir/GoogleMaps/Containers/isInsidePolygon.php',
+        'FarhanWazir\\GoogleMaps\\Facades\\GMapsFacade' => __DIR__ . '/..' . '/farhanwazir/laravelgooglemaps/src/FarhanWazir/GoogleMaps/Facades/GMapsFacade.php',
+        'FarhanWazir\\GoogleMaps\\GMaps' => __DIR__ . '/..' . '/farhanwazir/laravelgooglemaps/src/FarhanWazir/GoogleMaps/GMaps.php',
+        'FarhanWazir\\GoogleMaps\\GMapsServiceProvider' => __DIR__ . '/..' . '/farhanwazir/laravelgooglemaps/src/FarhanWazir/GoogleMaps/GMapsServiceProvider.php',
         'Fideloper\\Proxy\\TrustProxies' => __DIR__ . '/..' . '/fideloper/proxy/src/TrustProxies.php',
         'Fideloper\\Proxy\\TrustedProxyServiceProvider' => __DIR__ . '/..' . '/fideloper/proxy/src/TrustedProxyServiceProvider.php',
         'GuzzleHttp\\Client' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/Client.php',
