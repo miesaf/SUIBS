@@ -12,7 +12,19 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $config = array();
+    $config['center'] = 'Jasin, Melaka';
+    $config['zoom'] = '14';
+    $config['map_height'] = '500px';
+    $config['scrollwheel'] = false;
+
+    GMaps::initialize($config);
+
+    $map = GMaps::create_map();
+
+   // echo $map['js'];
+   // echo $map['html'];
+    return view('welcome')->with('map', $map);
 });
 Route::get('/logout', function(){
     Auth::logout();

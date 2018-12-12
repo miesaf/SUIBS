@@ -9,6 +9,8 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
 
+        {!! $map['js'] !!}
+
         <!-- Styles -->
         <style>
             html, body {
@@ -94,5 +96,9 @@
                 </div>
             </div>
         </div>
+
+        <br><br><br><br>
+
+        {!! $map['html'] !!}
     </body>
 </html>

@@ -12,7 +12,17 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
   <title>H O M E</title>
 
- <link rel="stylesheet" href="/css/app.css">
+  <link rel="stylesheet" href="/css/app.css">
+
+  <style>
+    /* Set the size of the div element that contains the map */
+    #map {
+      height: 400px;  /* The height is 400 pixels */
+      width: 100%;  /* The width is the width of the web page */
+      }
+  </style>
+
+
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -29,12 +39,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- SEARCH FORM -->
     <form class="form-inline ml-3">
       <div class="input-group input-group-sm">
+        <!--
         <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
         <div class="input-group-append">
           <button class="btn btn-navbar" type="submit">
             <i class="fa fa-search"></i>
           </button>
         </div>
+        -->
       </div>
     </form>
 
@@ -45,7 +57,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
+    <a href="{{ url('/home') }}" class="brand-link">
       <img src="./img/logo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
            style="opacity: .8">
       <span class="brand-text font-weight-light">S U I B S</span>
@@ -152,7 +164,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <div class="content">
       <div class="container-fluid">
           @yield('content')
-      </div><!-- /.container-fluid -->
+      </div>
+      <div class="container-fluid">
+          @yield('map_peta')
+      </div>
+      <!-- /.container-fluid -->
     </div>
     <!-- /.content -->
   </div>
@@ -180,6 +196,24 @@ scratch. This page gets rid of all links and provides the needed markup only.
 </div>
 <!-- ./wrapper -->
 
-<script src="/js/app.js"></script>
+  <script src="/js/app.js"></script>
+
+  <script>
+    // Initialize and add the map
+    function initMap() {
+      // The location of unitsukan
+      
+      var unitsukan = {lat: 2.225611, lng: 102.456363};
+      // The map, centered at unitsukan
+      var map = new google.maps.Map(
+          document.getElementById('map'), {zoom: 18, center: unitsukan});
+      // The marker, positioned at unitsukan
+      var marker = new google.maps.Marker({position: unitsukan, map: map});
+    }
+  </script>
+  <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHUnUEC22uCUyWW-KCiyZ4wk8BFyXEZsM&callback=initMap">
+  </script>
+
 </body>
 </html>
