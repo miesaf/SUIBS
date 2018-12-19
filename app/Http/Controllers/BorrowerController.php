@@ -15,8 +15,8 @@ class BorrowerController extends Controller
      */
     public function index()
     {
-        $borrower = borrower::all();
-        return view('borrower.index')->with('borrower',$borrower);
+        $borrowers = borrower::all();
+        return view('borrower.index')->with('borrower',$borrowers);
     }
 
     /**
@@ -24,10 +24,19 @@ class BorrowerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+	 
+	 public function create()
+    {
+		
+    	$borrowers = borrower::orderBy('name', 'asc')->get();
+		//$aina = "AINjjjjjjjA";
+		//dd($aina);
+    	return view('borrower.create');
+    }
+    /*public function create()
     {
         return view('borrower.create');
-    }
+    }*/
 
     /**
      * Store a newly created resource in storage.
@@ -37,17 +46,24 @@ class BorrowerController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request,[
-            'id' => 'required',
-            'name' => 'required'
+        $this->validate($request, [
+            'name' => 'required',
+            'phonenum' => 'required',
+            'position' => 'required',
+            'inventoriy_id' => 'required',
+            'user_id' => 'required'
         ]);
 
-        $borrower = new borrower;
-        $borrower->id = $request->input('id');
-        $borrower->name = $request->input('name');
-        $borrower->save();
+        $borrowers = new borrower;
+        $borrowers->name = $request->input('name');
+        $borrowers->phonenum = $request->input('phonenum');
+        $borrowers->position = $request->input('position');
+        $borrowers->inventoriy_id = $request->input('inventoriy_id');
+		$borrowers->user_id = $request->input('user_id');
+        //$borrowers->user_id = auth()->user()->id;
+        $borrowers->save();
 
-        return redirect('/borrower')->with('success','Borrower Created');
+        return redirect('/borrower')->with('success', 'New booking has been added!');
     }
 
     /**
@@ -69,7 +85,12 @@ class BorrowerController extends Controller
      */
     public function edit($id)
     {
-        //
+        $borrowers = Borrower::find($id);
+
+        // Check for correct user
+      
+
+        return view('borrower.edit')->with('borrowers', $borrowers);
     }
 
     /**
@@ -79,9 +100,29 @@ class BorrowerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Borrower $id)
     {
-        //
+
+        //dd($id);
+
+        $this->validate($request, [
+            'name' => 'required',
+            'phonenum' => 'required',
+            'position' => 'required',
+            'inventoriy_id' => 'required',
+            'user_id' => 'required',
+        ]);
+        // Create Product
+        $borrowers = borrower::find($id);
+        $borrowers->name = $request->input('name');
+        $borrowers->phonenum = $request->input('phonenum');
+        $borrowers->position = $request->input('position');
+        $borrowers->inventoriy_id = $request->input('inventory_id');
+        $borrowers->user_id = auth()->user()->id;
+        $borrowers->save();
+
+        return redirect('borrower.index')->with('success', 'Booking is updated!');
+
     }
 
     /**
@@ -92,6 +133,18 @@ class BorrowerController extends Controller
      */
     public function destroy($id)
     {
-        //
+        
+        $status = false;
+        $message = "Your Product has been deleted";
+        if (Borrower::find($id)->delete()){
+            $status = true;
+        } else {
+            $message = "The product failed to delete!";
+        }
+        $borrowers = Borrower::all();
+        \Session::flash('message',$message); 
+        \Session::flash('message-type', 'success');
+        return redirect('borrower')->with('borrower',$borrowers);
+        
     }
 }

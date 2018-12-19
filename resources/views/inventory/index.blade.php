@@ -9,6 +9,7 @@
             <h3 class="card-title">Inventory</h3>
           </div>
           <!-- /.card-header -->
+          @if(count($inventory) > 0)
           <div class="card-body">
             <table id="example2" class="table table-bordered table-hover">
               <thead>
@@ -20,18 +21,21 @@
               </tr>
               </thead>
               <tbody>
-                @foreach ($inventory as $inventor)
+                @foreach ($inventory as $inventories)
               <tr>
-                <td>{{$inventor->id}}</td>
-                <td>{{$inventor->item}}</td>
-                <td>{{$inventor->location}}</td>
-                <td><a href="/inventory/{{$inventor->id}}/edit" class="btn btn-primary">Edit</a>
-                  <a href="/inventory-delete/{{$inventor->id}}" class="btn btn-danger">Delete</a></td>
+                <td>{{$inventories->id}}</td>
+                <td>{{$inventories->item}}</td>
+                <td>{{$inventories->location}}</td>
+                <td><a href="/inventory/{{$inventories->id}}/edit" class="btn btn-primary">Edit</a>
+                  <a href="/inventory-delete/{{$inventories->id}}" class="btn btn-danger">Delete</a></td>
               </tr>
               @endforeach
             </tbody>
           </table>
         </div>
+        @else
+          <p>No Data to Display</p>
+        @endif
         <!-- /.card-body -->
       </div>
 
