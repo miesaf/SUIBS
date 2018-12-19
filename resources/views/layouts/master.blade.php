@@ -10,9 +10,19 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-  <title>AdminLTE 3 | Starter</title>
+  <title>H O M E</title>
 
- <link rel="stylesheet" href="/css/app.css">
+  <link rel="stylesheet" href="/css/app.css">
+
+  <style>
+    /* Set the size of the div element that contains the map */
+    #map {
+      height: 400px;  /* The height is 400 pixels */
+      width: 100%;  /* The width is the width of the web page */
+      }
+  </style>
+
+
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -29,12 +39,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- SEARCH FORM -->
     <form class="form-inline ml-3">
       <div class="input-group input-group-sm">
+        <!--
         <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
         <div class="input-group-append">
           <button class="btn btn-navbar" type="submit">
             <i class="fa fa-search"></i>
           </button>
         </div>
+        -->
       </div>
     </form>
 
@@ -45,7 +57,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
+    <a href="{{ url('/home') }}" class="brand-link">
       <img src="./img/logo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
            style="opacity: .8">
       <span class="brand-text font-weight-light">S U I B S</span>
@@ -75,7 +87,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <i class="nav-icon fas fa-tachometer-alt"></i>
                 <p>
                   Dashboard
-                  <span class="right badge badge-danger">New</span>
                 </p>
               </a>
           </li>  
@@ -84,32 +95,59 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <a href="#" class="nav-link active">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
-                Management
+                View
                 <i class="right fa fa-angle-left"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link ">
+                <a href="/borrower" class="nav-link ">
                   <i class="fa fa-circle-o nav-icon"></i>
-                  <p>View</p>
+                  <p>Borrowers</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="/inventory" class="nav-link">
                   <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Search</p>
+                  <p>Inventories</p>
+                </a>
+              </li>
+              <!--<li class="nav-item">
+                <a href="/borrowInventory" class="nav-link">
+                  <i class="fa fa-circle-o nav-icon"></i>
+                  <p>Borrow Details</p>
+                </a>
+              </li>-->
+            </ul>
+          </li>
+          <li class="nav-item has-treeview menu-open">
+            <a href="#" class="nav-link active">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                Add
+                <i class="right fa fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="/borrower/create" class="nav-link ">
+                  <i class="fa fa-circle-o nav-icon"></i>
+                  <p>Borrowers</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/inventory/create" class="nav-link">
+                  <i class="fa fa-circle-o nav-icon"></i>
+                  <p>Inventories</p>
                 </a>
               </li>
             </ul>
           </li>
-        
           <li class="nav-item">
               <a href="/logout" class="nav-link">
                 <i class="nav-icon fas fa-user"></i>
                 <p>
                   Logout
-                  <span class="right badge badge-danger">New</span>
                 </p>
               </a>
           </li> 
@@ -125,8 +163,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Main content -->
     <div class="content">
       <div class="container-fluid">
-
-      </div><!-- /.container-fluid -->
+          @yield('content')
+      </div>
+      <div class="container-fluid">
+          @yield('map_peta')
+      </div>
+      <!-- /.container-fluid -->
     </div>
     <!-- /.content -->
   </div>
@@ -154,6 +196,24 @@ scratch. This page gets rid of all links and provides the needed markup only.
 </div>
 <!-- ./wrapper -->
 
-<script src="/js/app.js"></script>
+  <script src="/js/app.js"></script>
+
+  <script>
+    // Initialize and add the map
+    function initMap() {
+      // The location of unitsukan
+      
+      var unitsukan = {lat: 2.225611, lng: 102.456363};
+      // The map, centered at unitsukan
+      var map = new google.maps.Map(
+          document.getElementById('map'), {zoom: 18, center: unitsukan});
+      // The marker, positioned at unitsukan
+      var marker = new google.maps.Marker({position: unitsukan, map: map});
+    }
+  </script>
+  <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHUnUEC22uCUyWW-KCiyZ4wk8BFyXEZsM&callback=initMap">
+  </script>
+
 </body>
 </html>

@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class borrower extends Model
 {
+
     public function inventory()
     {
         return $this->belongsToMany(inventory::class);
