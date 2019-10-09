@@ -42,11 +42,11 @@ return [
 
         'mysql' => [
             'driver' => 'mysql',
-            'host' => env('DB_HOST', 'sql36.main-hosting.eu'),
+            'host' => env('DB_HOST', 'localhost'),
             'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE', 'u969337545_daryg'),
-            'username' => env('DB_USERNAME', 'u969337545_qunen'),
-            'password' => env('DB_PASSWORD', 'c1L]2h#P5@jBz:?Ixc'),
+            'database' => env('DB_DATABASE', 'sportsys'),
+            'username' => env('DB_USERNAME', 'root'),
+            'password' => env('DB_PASSWORD', ''),
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',
