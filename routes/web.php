@@ -11,6 +11,7 @@
 |
 */
 
+// Map at Dashboard
 Route::get('/', function () {
     $config = array();
     $config['center'] = 'Jasin, Melaka';
@@ -26,10 +27,12 @@ Route::get('/', function () {
    // echo $map['html'];
     return view('welcome')->with('map', $map);
 });
+
 Route::get('/logout', function(){
     Auth::logout();
     return redirect("/");
 });
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -51,8 +54,6 @@ Route::get('inventory-delete/{id}', 'InventoryController@destroy');
 Route::get('/inventory/create', function() {
     return view('create');
 });
-
-
 
 // dfghjuygfdghjuk
 Route::resource('inventory', 'InventoryController');

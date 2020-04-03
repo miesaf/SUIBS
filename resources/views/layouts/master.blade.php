@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <!--
 This is a starter template page. Use this page to start your new project from
@@ -33,7 +32,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <li class="nav-item">
         <a class="nav-link" data-widget="pushmenu" href="#"><i class="fa fa-bars"></i></a>
       </li>
-    
+
     </ul>
 
     <!-- SEARCH FORM -->
@@ -50,7 +49,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       </div>
     </form>
 
-    
+
   </nav>
   <!-- /.navbar -->
 
@@ -89,8 +88,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   Dashboard
                 </p>
               </a>
-          </li>  
-              
+          </li>
+
           <li class="nav-item has-treeview menu-open">
             <a href="#" class="nav-link active">
               <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -150,7 +149,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   Logout
                 </p>
               </a>
-          </li> 
+          </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
@@ -202,7 +201,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     // Initialize and add the map
     function initMap() {
       // The location of unitsukan
-      
+
       var unitsukan = {lat: 2.225611, lng: 102.456363};
       // The map, centered at unitsukan
       var map = new google.maps.Map(
