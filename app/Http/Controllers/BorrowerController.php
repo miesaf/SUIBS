@@ -24,10 +24,10 @@ class BorrowerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-	 
+
 	 public function create()
     {
-		
+
     	$borrowers = borrower::orderBy('name', 'asc')->get();
 		//$aina = "AINjjjjjjjA";
 		//dd($aina);
@@ -88,7 +88,7 @@ class BorrowerController extends Controller
         $borrowers = Borrower::find($id);
 
         // Check for correct user
-      
+
 
         return view('borrower.edit')->with('borrowers', $borrowers);
     }
@@ -100,11 +100,8 @@ class BorrowerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Borrower $id)
+    public function update(Request $request, $id)
     {
-
-        //dd($id);
-
         $this->validate($request, [
             'name' => 'required',
             'phonenum' => 'required',
@@ -112,16 +109,17 @@ class BorrowerController extends Controller
             'inventoriy_id' => 'required',
             'user_id' => 'required',
         ]);
+
         // Create Product
         $borrowers = borrower::find($id);
         $borrowers->name = $request->input('name');
         $borrowers->phonenum = $request->input('phonenum');
         $borrowers->position = $request->input('position');
-        $borrowers->inventoriy_id = $request->input('inventory_id');
+        $borrowers->inventoriy_id = $request->input('inventoriy_id');
         $borrowers->user_id = auth()->user()->id;
         $borrowers->save();
 
-        return redirect('borrower.index')->with('success', 'Booking is updated!');
+        return redirect('borrower')->with('success', 'Booking is updated!');
 
     }
 
@@ -133,7 +131,7 @@ class BorrowerController extends Controller
      */
     public function destroy($id)
     {
-        
+
         $status = false;
         $message = "Your Product has been deleted";
         if (Borrower::find($id)->delete()){
@@ -142,9 +140,9 @@ class BorrowerController extends Controller
             $message = "The product failed to delete!";
         }
         $borrowers = Borrower::all();
-        \Session::flash('message',$message); 
-        \Session::flash('message-type', 'success');
+        // Session::flash('message',$message);
+        // Session::flash('message-type', 'success');
         return redirect('borrower')->with('borrower',$borrowers);
-        
+
     }
 }

@@ -10,7 +10,7 @@
         <!-- form start -->
         <div class="card-body">
             {!! Form::open(['action' => ['BorrowerController@update', $borrowers->id], 'method' => 'POST']) !!}
-                
+
 				<div class="form-group">
                     {{Form::label('name', 'User Name')}}
                     {{Form::text('name', $borrowers->name, ['class' => 'form-control', 'placeholder' => 'Enter name'])}}
@@ -25,7 +25,7 @@
                 </div>
                 <div class="form-group">
                         {{Form::label('inventoriy_id', 'Inventory ID')}}
-                        {{Form::text('inventoriy_id', $borrowers->inventory, ['class' => 'form-control', 'placeholder' => 'Enter Inventory ID'])}}
+                        {{Form::text('inventoriy_id', $borrowers->inventoriy_id, ['class' => 'form-control', 'placeholder' => 'Enter Inventory ID'])}}
                 </div>
 				<div class="form-group">
                     {{Form::label('user_id', 'User ID')}}
