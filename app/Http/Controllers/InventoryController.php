@@ -53,7 +53,7 @@ class InventoryController extends Controller
         $inventories->save();
 
         return redirect('/inventory')->with('success', 'New inventory has been added!');
-    
+
     }
 
     /**
@@ -78,12 +78,12 @@ class InventoryController extends Controller
         $inventories = Inventory::find($id);
 
         // Check for correct user
-      if(auth()->user()->id !== $inventories->id){
-            return redirect('/inventories')->with('error', 'Unauthorized Page');
-        }
+        // if(auth()->user()->id !== $inventories->id){
+        //     return redirect('/inventory')->with('error', 'Unauthorized Page');
+        // }
 
         return view('inventory.edit')->with('inventory', $inventories);
-    
+
     }
 
     /**
@@ -98,17 +98,16 @@ class InventoryController extends Controller
         $this->validate($request, [
             'item' => 'required',
             'location' => 'required',
-            
         ]);
-            
+
         // Create inventories
         $inventories = Inventory::find($id);
         $inventories->item = $request->input('item');
         $inventories->location = $request->input('location');
-        $inventories->id = auth()->user()->id;
+        // $inventories->id = auth()->user()->id;
         $inventories->save();
 
-        return redirect('/inventories')->with('success', 'inventories is updated!');
+        return redirect('inventory')->with('success', 'inventories is updated!');
     }
 
     /**
@@ -127,8 +126,8 @@ class InventoryController extends Controller
             $message = "The inventory failed to delete!";
         }
         $inventories = Inventory::all();
-        \Session::flash('message',$message); 
-        \Session::flash('message-type', 'success');
+        // Session::flash('message',$message);
+        // Session::flash('message-type', 'success');
         return redirect('inventory')->with('inventory',$inventories);
     }
 }

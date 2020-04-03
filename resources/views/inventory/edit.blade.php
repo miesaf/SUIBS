@@ -17,8 +17,8 @@
                 </div>
                 <div class="form-group">
                         {{Form::label('location', 'Location')}}
-                        {{Form::text('location', $inventory->type, ['class' => 'form-control', 'placeholder' => 'Enter inventory location'])}}
-                </div>  
+                        {{Form::text('location', $inventory->location, ['class' => 'form-control', 'placeholder' => 'Enter inventory location'])}}
+                </div>
                 {{Form::hidden('_method', 'PUT')}}
                 {{Form::submit('Submit', ['class'=>'btn btn-primary'])}}
             {!! Form::close() !!}
