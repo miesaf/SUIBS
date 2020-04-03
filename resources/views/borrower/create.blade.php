@@ -11,7 +11,7 @@
   <!-- /.card-header -->
   <!-- form start -->
     <div class="card-body">
-        {!! Form::open(['action' => 'BorrowerController@store', 'method' => 'POST']) !!} 
+        {!! Form::open(['action' => 'BorrowerController@store', 'method' => 'POST']) !!}
         <div class="form-group">
                 {{Form::label('name', 'Name')}}
                 {{Form::text('name', '', ['class' => 'form-control', 'placeholder' => 'Enter name'])}}
@@ -27,15 +27,14 @@
         <div class="form-group">
             {{Form::label('inventoriy_id', 'Inventory ID')}}
             {{Form::text('inventoriy_id', '', ['class' => 'form-control', 'placeholder' => 'Enter inventory id'])}}
-        </div>  
+        </div>
         <div class="form-group">
             {{Form::label('user_id', 'Admin ID')}}
             {{Form::text('user_id', '', ['class' => 'form-control', 'placeholder' => 'Enter admin id'])}}
-        </div>  
+        </div>
         {{Form::submit('Submit', ['class'=>'btn btn-primary'])}}
 
         {!! Form::close() !!}
-    </div>
       {{-- <div class="form-group">
         <label>Borrower Name :</label>
         <input type="text" class="form-control" id="name" placeholder="Name">
@@ -59,8 +58,6 @@
 
     </div>
     <!-- /.card-body -->
-    </div>
-  </form>
 </div>
 @endsection
 

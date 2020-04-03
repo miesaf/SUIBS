@@ -43,6 +43,8 @@
           <p>No Data to Display</p>
         @endif
         <!-- /.card-body -->
+        </div>
       </div>
+    </div>
 
 @endsection
