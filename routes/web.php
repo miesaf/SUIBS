@@ -31,7 +31,7 @@ Route::get('/', function () {
 Route::get('/logout', function(){
     Auth::logout();
     return redirect("/");
-});
+})->name('logout');
 
 Auth::routes();
 
@@ -42,13 +42,13 @@ Route::get('/home', 'HomeController@index')->name('home');
 // Borrower
 Route::resource('borrower','BorrowerController');
 Route::get('/borrower', 'BorrowerController@index')->name('borrower.index');
-Route::post('/borrower/create','BorrowerController@create');
+Route::post('/borrower/create','BorrowerController@create')->name('borrower.create');
 Route::post('/borrower/store','BorrowerController@store');
 Route::get('borrower-delete/{id}','BorrowerController@destroy');
 
 // Inventory
-Route::get('/inventory', 'InventoryController@index');
-Route::post('/inventory/create','InventoryController@create');
+Route::get('/inventory', 'InventoryController@index')->name('inventory.index');
+Route::post('/inventory/create','InventoryController@create')->name('inventory.create');
 Route::post('/inventory/store', "InventoryController@store");
 Route::get('inventory-delete/{id}', 'InventoryController@destroy');
 Route::get('/inventory/create', function() {

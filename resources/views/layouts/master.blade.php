@@ -11,7 +11,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
   <title>H O M E</title>
 
-  <link rel="stylesheet" href="/css/app.css">
+  <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
   <style>
     /* Set the size of the div element that contains the map */
@@ -56,8 +56,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="{{ url('/home') }}" class="brand-link">
-      <img src="/img/uitm.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+    <a href="{{ route('home') }}" class="brand-link">
+      <img src="{{ asset('img/uitm.png') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
            style="opacity: .8">
       <span class="brand-text font-weight-light">S U I B S</span>
     </a>
@@ -67,10 +67,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="/img/project.png" class="img-circle elevation-2" alt="User Image">
+          <img src="{{ asset('img/project.png') }}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">
+          <a href="{{ route('home') }}" class="d-block">
             {{Auth::user()->name}}
           </a>
         </div>
@@ -82,7 +82,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item">
-              <a href="/home" class="nav-link">
+              <a href="{{ route('home') }}" class="nav-link">
                 <i class="nav-icon fas fa-tachometer-alt"></i>
                 <p>
                   Dashboard
@@ -100,13 +100,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="/borrower" class="nav-link ">
+                <a href="{{ route('borrower.index') }}" class="nav-link ">
                   <i class="fa fa-circle-o nav-icon"></i>
                   <p>Borrowers</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/inventory" class="nav-link">
+                <a href="{{ route('inventory.index') }}" class="nav-link">
                   <i class="fa fa-circle-o nav-icon"></i>
                   <p>Inventories</p>
                 </a>
@@ -129,13 +129,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="/borrower/create" class="nav-link ">
+                <a href="{{ route('borrower.create') }}" class="nav-link ">
                   <i class="fa fa-circle-o nav-icon"></i>
                   <p>Borrowers</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/inventory/create" class="nav-link">
+                <a href="{{ route('inventory.create') }}" class="nav-link">
                   <i class="fa fa-circle-o nav-icon"></i>
                   <p>Inventories</p>
                 </a>
@@ -143,7 +143,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </ul>
           </li>
           <li class="nav-item">
-              <a href="/logout" class="nav-link">
+              <a href="{{ route('logout') }}" class="nav-link">
                 <i class="nav-icon fas fa-user"></i>
                 <p>
                   Logout
@@ -190,12 +190,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
       Sport Unit Inventory Borrowing System (SUIBS)
     </div>
     <!-- Default to the left -->
-    <strong>Copyright &copy; 2018 <a href="https://app.suibs.ml">ASAS@ITT544</a>.</strong> All rights reserved.
+    <strong>Copyright &copy; 2018 <a href="{{ env('APP_URL') }}">ASAS@ITT544</a>.</strong> All rights reserved.
   </footer>
 </div>
 <!-- ./wrapper -->
 
-  <script src="/js/app.js"></script>
+  <script src="{{ asset('js/app.js') }}"></script>
 
   <script>
     // Initialize and add the map
