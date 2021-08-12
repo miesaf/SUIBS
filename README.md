@@ -24,4 +24,4 @@ User manual was included in this repository with the name [User_Manual_SUIBS.pdf
 
 ## Hosted Project
 
- The project was hosted and can be accessed at  [https://app.suibs.ml](https://app.suibs.ml) for preview and evaluation.
+ The project was hosted and can be accessed at  [https://suibs.dimensikini.xyz](https://suibs.dimensikini.xyz) for preview and evaluation.
