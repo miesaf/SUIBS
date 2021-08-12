@@ -24,176 +24,176 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 </head>
 <body class="hold-transition sidebar-mini">
-<div class="wrapper">
+  <div class="wrapper">
 
-  <!-- Navbar -->
-  <nav class="main-header navbar navbar-expand bg-white navbar-light border-bottom">
-  <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" data-widget="pushmenu" href="#"><i class="fa fa-bars"></i></a>
-      </li>
+    <!-- Navbar -->
+    <nav class="main-header navbar navbar-expand bg-white navbar-light border-bottom">
+    <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" data-widget="pushmenu" href="#"><i class="fa fa-bars"></i></a>
+        </li>
 
-    </ul>
+      </ul>
 
-    <!-- SEARCH FORM -->
-    <form class="form-inline ml-3">
-      <div class="input-group input-group-sm">
-        <!--
-        <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
-        <div class="input-group-append">
-          <button class="btn btn-navbar" type="submit">
-            <i class="fa fa-search"></i>
-          </button>
+      <!-- SEARCH FORM -->
+      <form class="form-inline ml-3">
+        <div class="input-group input-group-sm">
+          <!--
+          <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+          <div class="input-group-append">
+            <button class="btn btn-navbar" type="submit">
+              <i class="fa fa-search"></i>
+            </button>
+          </div>
+          -->
         </div>
-        -->
-      </div>
-    </form>
+      </form>
 
 
-  </nav>
-  <!-- /.navbar -->
+    </nav>
+    <!-- /.navbar -->
 
-  <!-- Main Sidebar Container -->
-  <aside class="main-sidebar sidebar-dark-primary elevation-4">
-    <!-- Brand Logo -->
-    <a href="{{ route('home') }}" class="brand-link">
-      <img src="{{ asset('img/uitm.png') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
-           style="opacity: .8">
-      <span class="brand-text font-weight-light">S U I B S</span>
-    </a>
+    <!-- Main Sidebar Container -->
+    <aside class="main-sidebar sidebar-dark-primary elevation-4">
+      <!-- Brand Logo -->
+      <a href="{{ route('home') }}" class="brand-link">
+        <img src="{{ asset('img/uitm.png') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+            style="opacity: .8">
+        <span class="brand-text font-weight-light">S U I B S</span>
+      </a>
 
-    <!-- Sidebar -->
-    <div class="sidebar">
-      <!-- Sidebar user panel (optional) -->
-      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-        <div class="image">
-          <img src="{{ asset('img/project.png') }}" class="img-circle elevation-2" alt="User Image">
+      <!-- Sidebar -->
+      <div class="sidebar">
+        <!-- Sidebar user panel (optional) -->
+        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+          <div class="image">
+            <img src="{{ asset('img/project.png') }}" class="img-circle elevation-2" alt="User Image">
+          </div>
+          <div class="info">
+            <a href="{{ route('home') }}" class="d-block">
+              {{Auth::user()->name}}
+            </a>
+          </div>
         </div>
-        <div class="info">
-          <a href="{{ route('home') }}" class="d-block">
-            {{Auth::user()->name}}
-          </a>
-        </div>
-      </div>
 
-      <!-- Sidebar Menu -->
-      <nav class="mt-2">
-        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
-          <li class="nav-item">
-              <a href="{{ route('home') }}" class="nav-link">
+        <!-- Sidebar Menu -->
+        <nav class="mt-2">
+          <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+            <!-- Add icons to the links using the .nav-icon class
+                with font-awesome or any other icon font library -->
+            <li class="nav-item">
+                <a href="{{ route('home') }}" class="nav-link">
+                  <i class="nav-icon fas fa-tachometer-alt"></i>
+                  <p>
+                    Dashboard
+                  </p>
+                </a>
+            </li>
+
+            <li class="nav-item has-treeview menu-open">
+              <a href="#" class="nav-link active">
                 <i class="nav-icon fas fa-tachometer-alt"></i>
                 <p>
-                  Dashboard
+                  View
+                  <i class="right fa fa-angle-left"></i>
                 </p>
               </a>
-          </li>
-
-          <li class="nav-item has-treeview menu-open">
-            <a href="#" class="nav-link active">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
-              <p>
-                View
-                <i class="right fa fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="{{ route('borrower.index') }}" class="nav-link ">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Borrowers</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{{ route('inventory.index') }}" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Inventories</p>
-                </a>
-              </li>
-              <!--<li class="nav-item">
-                <a href="/borrowInventory" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Borrow Details</p>
-                </a>
-              </li>-->
-            </ul>
-          </li>
-          <li class="nav-item has-treeview menu-open">
-            <a href="#" class="nav-link active">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
-              <p>
-                Add
-                <i class="right fa fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="{{ route('borrower.create') }}" class="nav-link ">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Borrowers</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{{ route('inventory.create') }}" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Inventories</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item">
-              <a href="{{ route('logout') }}" class="nav-link">
-                <i class="nav-icon fas fa-user"></i>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="{{ route('borrower.index') }}" class="nav-link ">
+                    <i class="fa fa-circle-o nav-icon"></i>
+                    <p>Borrowers</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="{{ route('inventory.index') }}" class="nav-link">
+                    <i class="fa fa-circle-o nav-icon"></i>
+                    <p>Inventories</p>
+                  </a>
+                </li>
+                <!--<li class="nav-item">
+                  <a href="/borrowInventory" class="nav-link">
+                    <i class="fa fa-circle-o nav-icon"></i>
+                    <p>Borrow Details</p>
+                  </a>
+                </li>-->
+              </ul>
+            </li>
+            <li class="nav-item has-treeview menu-open">
+              <a href="#" class="nav-link active">
+                <i class="nav-icon fas fa-tachometer-alt"></i>
                 <p>
-                  Logout
+                  Add
+                  <i class="right fa fa-angle-left"></i>
                 </p>
               </a>
-          </li>
-        </ul>
-      </nav>
-      <!-- /.sidebar-menu -->
-    </div>
-    <!-- /.sidebar -->
-  </aside>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="{{ route('borrower.create') }}" class="nav-link ">
+                    <i class="fa fa-circle-o nav-icon"></i>
+                    <p>Borrowers</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="{{ route('inventory.create') }}" class="nav-link">
+                    <i class="fa fa-circle-o nav-icon"></i>
+                    <p>Inventories</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+                <a href="{{ route('logout') }}" class="nav-link">
+                  <i class="nav-icon fas fa-user"></i>
+                  <p>
+                    Logout
+                  </p>
+                </a>
+            </li>
+          </ul>
+        </nav>
+        <!-- /.sidebar-menu -->
+      </div>
+      <!-- /.sidebar -->
+    </aside>
 
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <!-- Main content -->
-    <div class="content">
-      <div class="container-fluid">
-          @yield('content')
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+      <!-- Main content -->
+      <div class="content">
+        <div class="container-fluid">
+            @yield('content')
+        </div>
+        <div class="container-fluid">
+            @yield('map_peta')
+        </div>
+        <!-- /.container-fluid -->
       </div>
-      <div class="container-fluid">
-          @yield('map_peta')
-      </div>
-      <!-- /.container-fluid -->
+      <!-- /.content -->
     </div>
-    <!-- /.content -->
+    <!-- /.content-wrapper -->
+
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+      <!-- Control sidebar content goes here -->
+      <div class="p-3">
+        <h5>Title</h5>
+        <p>Sidebar content</p>
+      </div>
+    </aside>
+    <!-- /.control-sidebar -->
+
+    <!-- Main Footer -->
+    <footer class="main-footer">
+      <!-- To the right -->
+      <div class="float-right d-none d-sm-inline">
+        Sport Unit Inventory Borrowing System (SUIBS)
+      </div>
+      <!-- Default to the left -->
+      <strong>Copyright &copy; 2018 <a href="{{ env('APP_URL') }}">ASAS@ITT544</a>.</strong> All rights reserved.
+    </footer>
   </div>
-  <!-- /.content-wrapper -->
-
-  <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark">
-    <!-- Control sidebar content goes here -->
-    <div class="p-3">
-      <h5>Title</h5>
-      <p>Sidebar content</p>
-    </div>
-  </aside>
-  <!-- /.control-sidebar -->
-
-  <!-- Main Footer -->
-  <footer class="main-footer">
-    <!-- To the right -->
-    <div class="float-right d-none d-sm-inline">
-      Sport Unit Inventory Borrowing System (SUIBS)
-    </div>
-    <!-- Default to the left -->
-    <strong>Copyright &copy; 2018 <a href="{{ env('APP_URL') }}">ASAS@ITT544</a>.</strong> All rights reserved.
-  </footer>
-</div>
-<!-- ./wrapper -->
+  <!-- ./wrapper -->
 
   <script src="{{ asset('js/app.js') }}"></script>
 
@@ -210,9 +210,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       var marker = new google.maps.Marker({position: unitsukan, map: map});
     }
   </script>
-  <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHUnUEC22uCUyWW-KCiyZ4wk8BFyXEZsM&callback=initMap">
-  </script>
 
+  @yield('js_map_peta')
 </body>
 </html>

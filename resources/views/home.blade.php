@@ -36,3 +36,9 @@
     </div>
 </div>
 @endsection
+
+@section('js_map_peta')
+<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_MAP_KEY') }}&callback=initMap">
+</script>
+@endsection
