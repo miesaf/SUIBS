@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-<br/>
+<br />
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-10">
@@ -38,7 +38,5 @@
 @endsection
 
 @section('js_map_peta')
-<script async defer
-    src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_MAP_KEY') }}&callback=initMap">
-</script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_MAP_KEY') }}&callback=initMap"></script>
 @endsection
