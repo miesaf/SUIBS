@@ -10,7 +10,6 @@
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
 
-    {!! $map['js'] !!}
 
     <!-- Styles -->
     <style>
@@ -103,7 +102,20 @@
 
     <br><br><br><br>
 
-    {!! $map['html'] !!}
+    <div id="map_canvas" style="width:100%; height:500px;"></div>
+    @if (config('services.google_maps.key'))
+        <script>
+            // Map centred on Jasin, Melaka (was rendered by farhanwazir/laravelgooglemaps).
+            function initialize_map() {
+                new google.maps.Map(document.getElementById('map_canvas'), {
+                    center: { lat: 2.3097, lng: 102.4311 },
+                    zoom: 14,
+                    scrollwheel: false
+                });
+            }
+        </script>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key={{ config('services.google_maps.key') }}&callback=initialize_map"></script>
+    @endif
 </body>
 
 </html>

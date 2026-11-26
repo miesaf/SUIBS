@@ -13,31 +13,31 @@
 
                 <!-- form start -->
                 <div class="card-body">
-                    {!! Form::open(['action' => ['BorrowerController@update', $borrowers->id], 'method' => 'POST']) !!}
-
+                    <form method="POST" action="{{ route('borrower.update', $borrowers->id) }}" accept-charset="UTF-8">
+                    @csrf
+                    @method('PUT')
                     <div class="form-group">
-                        {{ Form::label('name', 'User Name') }}
-                        {{ Form::text('name', $borrowers->name, ['class' => 'form-control', 'placeholder' => 'Enter name']) }}
+                        <label for="name">User Name</label>
+                        <input class="form-control" placeholder="Enter name" name="name" type="text" value="{{ old('name', $borrowers->name) }}" id="name">
                     </div>
                     <div class="form-group">
-                        {{ Form::label('phonenum', 'Phone Number') }}
-                        {{ Form::text('phonenum', $borrowers->phonenum, ['class' => 'form-control', 'placeholder' => 'Enter phone number']) }}
+                        <label for="phonenum">Phone Number</label>
+                        <input class="form-control" placeholder="Enter phone number" name="phonenum" type="text" value="{{ old('phonenum', $borrowers->phonenum) }}" id="phonenum">
                     </div>
                     <div class="form-group">
-                        {{ Form::label('position', 'Position') }}
-                        {{ Form::text('position', $borrowers->position, ['class' => 'form-control', 'placeholder' => 'Enter Position']) }}
+                        <label for="position">Position</label>
+                        <input class="form-control" placeholder="Enter Position" name="position" type="text" value="{{ old('position', $borrowers->position) }}" id="position">
                     </div>
                     <div class="form-group">
-                        {{ Form::label('inventoriy_id', 'Inventory ID') }}
-                        {{ Form::text('inventoriy_id', $borrowers->inventoriy_id, ['class' => 'form-control', 'placeholder' => 'Enter Inventory ID']) }}
+                        <label for="inventoriy_id">Inventory ID</label>
+                        <input class="form-control" placeholder="Enter Inventory ID" name="inventoriy_id" type="text" value="{{ old('inventoriy_id', $borrowers->inventoriy_id) }}" id="inventoriy_id">
                     </div>
                     <div class="form-group">
-                        {{ Form::label('user_id', 'User ID') }}
-                        {{ Form::text('user_id', $borrowers->user_id, ['class' => 'form-control', 'placeholder' => 'Enter User ID']) }}
+                        <label for="user_id">User ID</label>
+                        <input class="form-control" placeholder="Enter User ID" name="user_id" type="text" value="{{ old('user_id', $borrowers->user_id) }}" id="user_id">
                     </div>
-                    {{ Form::hidden('_method', 'PUT') }}
-                    {{ Form::submit('Submit', ['class' => 'btn btn-primary']) }}
-                    {!! Form::close() !!}
+                    <input class="btn btn-primary" type="submit" value="Submit">
+                    </form>
                 </div>
             </div>
         </div>

@@ -27,9 +27,9 @@
 										<td>{{ $inventories->id }}</td>
 										<td>{{ $inventories->item }}</td>
 										<td>{{ $inventories->location }}</td>
-										<td><a href="/inventory/{{ $inventories->id }}/edit"
+										<td><a href="{{ route('inventory.edit', $inventories->id) }}"
 												class="btn btn-primary">Edit</a>
-											<a href="/inventory-delete/{{ $inventories->id }}"
+											<a href="{{ route('inventory.delete', $inventories->id) }}"
 												class="btn btn-danger">Delete</a>
 										</td>
 									</tr>

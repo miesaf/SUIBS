@@ -168,6 +168,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <!-- Main content -->
             <div class="content">
                 <div class="container-fluid">
+                    @include('inc.messages')
                     @yield('content')
                 </div>
                 <div class="container-fluid">
@@ -196,7 +197,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 Sport Unit Inventory Borrowing System (SUIBS)
             </div>
             <!-- Default to the left -->
-            <strong>Copyright &copy; 2018 <a href="{{ env('APP_URL') }}">ASAS@ITT544</a>.</strong> All rights
+            <strong>Copyright &copy; 2018 <a href="{{ url('/') }}">ASAS@ITT544</a>.</strong> All rights
             reserved.
         </footer>
     </div>

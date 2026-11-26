@@ -35,9 +35,9 @@
 												<td>{{ $borrowers->position }}</td>
 												<td>{{ $borrowers->inventoriy_id }}</td>
 												<td>{{ $borrowers->user_id }}</td>
-												<td><a href="/borrower/{{ $borrowers->id }}/edit"
+												<td><a href="{{ route('borrower.edit', $borrowers->id) }}"
 														class="btn btn-primary">Edit</a>
-													<a href="/borrower-delete/{{ $borrowers->id }}"
+													<a href="{{ route('borrower.delete', $borrowers->id) }}"
 														class="btn btn-danger">Delete</a>
 												</td>
 											</tr>

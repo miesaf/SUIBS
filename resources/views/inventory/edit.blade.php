@@ -13,18 +13,19 @@
 
                 <!-- form start -->
                 <div class="card-body">
-                    {!! Form::open(['action' => ['InventoryController@update', $inventory->id], 'method' => 'POST']) !!}
+                    <form method="POST" action="{{ route('inventory.update', $inventory->id) }}" accept-charset="UTF-8">
+                    @csrf
+                    @method('PUT')
                     <div class="form-group">
-                        {{ Form::label('item', 'Item') }}
-                        {{ Form::text('item', $inventory->item, ['class' => 'form-control', 'placeholder' => 'Enter inventory item']) }}
+                        <label for="item">Item</label>
+                        <input class="form-control" placeholder="Enter inventory item" name="item" type="text" value="{{ old('item', $inventory->item) }}" id="item">
                     </div>
                     <div class="form-group">
-                        {{ Form::label('location', 'Location') }}
-                        {{ Form::text('location', $inventory->location, ['class' => 'form-control', 'placeholder' => 'Enter inventory location']) }}
+                        <label for="location">Location</label>
+                        <input class="form-control" placeholder="Enter inventory location" name="location" type="text" value="{{ old('location', $inventory->location) }}" id="location">
                     </div>
-                    {{ Form::hidden('_method', 'PUT') }}
-                    {{ Form::submit('Submit', ['class' => 'btn btn-primary']) }}
-                    {!! Form::close() !!}
+                    <input class="btn btn-primary" type="submit" value="Submit">
+                    </form>
                 </div>
             </div>
         </div>
