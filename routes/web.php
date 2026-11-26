@@ -1,67 +1,30 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\BorrowerController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\InventoryController;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 
-// Map at Dashboard
+// Landing page with the map of Jasin
 Route::get('/', function () {
-    $config = array();
-    $config['center'] = 'Jasin, Melaka';
-    $config['zoom'] = '14';
-    $config['map_height'] = '500px';
-    $config['scrollwheel'] = false;
-
-    GMaps::initialize($config);
-
-    $map = GMaps::create_map();
-
-   // echo $map['js'];
-   // echo $map['html'];
-    return view('welcome')->with('map', $map);
+    return view('welcome');
 });
 
-Route::get('/logout', function(){
-    Auth::logout();
-    return redirect("/");
-})->name('logout');
+// The sidebar's Logout link is a plain GET link; the POST route comes from Auth::routes().
+Route::get('/logout', [LoginController::class, 'logout']);
 
-Auth::routes();
+Auth::routes(['verify' => false, 'confirm' => false]);
 
-Route::get('/home', 'HomeController@index')->name('home');
-//Route::get('/borrower', 'BorrowerController@index');
-//Route::resource('borrower', 'BorrowerController');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 
-// Borrower
-Route::resource('borrower','BorrowerController');
-Route::get('/borrower', 'BorrowerController@index')->name('borrower.index');
-Route::post('/borrower/create','BorrowerController@create')->name('borrower.create');
-Route::post('/borrower/store','BorrowerController@store');
-Route::get('borrower-delete/{id}','BorrowerController@destroy');
+Route::middleware('auth')->group(function () {
+    // Borrower
+    Route::resource('borrower', BorrowerController::class)->except('show');
+    Route::get('borrower-delete/{id}', [BorrowerController::class, 'destroy'])->name('borrower.delete');
 
-// Inventory
-Route::get('/inventory', 'InventoryController@index')->name('inventory.index');
-Route::post('/inventory/create','InventoryController@create')->name('inventory.create');
-Route::post('/inventory/store', "InventoryController@store");
-Route::get('inventory-delete/{id}', 'InventoryController@destroy');
-Route::get('/inventory/create', function() {
-    return view('create');
+    // Inventory
+    Route::resource('inventory', InventoryController::class)->except('show');
+    Route::get('inventory-delete/{id}', [InventoryController::class, 'destroy'])->name('inventory.delete');
 });
-
-// dfghjuygfdghjuk
-Route::resource('inventory', 'InventoryController');
-Route::resource('borrower', 'BorrowerController');
-
-//Route::get('borrower-edit/{id}/edit','BorrowerController@edit');
-//Route::get('borrower-update/{id}','BorrowerController@update');
-
-//Route::get('/borrowInventory', 'BorrowerInventoryController@index');
-//Route::get('/borrowInventory', 'BorrowerInventoryController@create');
-//Route::resource('/inventory', 'InventoryController');

@@ -15,19 +15,18 @@
                 <!-- /.card-header -->
                 <!-- form start -->
                 <div class="card-body">
-                    {!! Form::open(['action' => 'InventoryController@store', 'method' => 'POST']) !!}
+                    <form method="POST" action="{{ route('inventory.store') }}" accept-charset="UTF-8">
+                    @csrf
                     <div class="form-group">
-                        {{ Form::label('item', 'Item') }}
-                        {{ Form::text('item', '', ['class' => 'form-control', 'placeholder' => 'Enter Item']) }}
+                        <label for="item">Item</label>
+                        <input class="form-control" placeholder="Enter Item" name="item" type="text" value="{{ old('item', '') }}" id="item">
                     </div>
                     <div class="form-group">
-                        {{ Form::label('location', 'Location') }}
-                        {{ Form::text('location', '', ['class' => 'form-control', 'placeholder' => 'Enter Location']) }}
+                        <label for="location">Location</label>
+                        <input class="form-control" placeholder="Enter Location" name="location" type="text" value="{{ old('location', '') }}" id="location">
                     </div>
-
-                    {{ Form::submit('Submit', ['class' => 'btn btn-primary']) }}
-
-                    {!! Form::close() !!}
+                    <input class="btn btn-primary" type="submit" value="Submit">
+                    </form>
                 </div>
                 {{-- <div class="form-group">
 					<label >Enter Inventory Item :</label>
