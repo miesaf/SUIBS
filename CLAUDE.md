@@ -26,6 +26,14 @@ project archive. Upgraded to **Laravel 13 / PHP 8.5** in November 2026 (ClickUp 
 - Config falls back to the old `.env` keys `CACHE_DRIVER` and `MAIL_DRIVER`; sessions and cache default to files,
   queue to sync.
 
+## Status (2026-11-27)
+
+- Deployed on 2026-11-26 (PR #55, Laravel 13, PHP 8.5.13). ClickUp `86d4e29q6` is complete.
+- `GOOGLE_MAP_KEY` is not set on production. Open: the owner revokes or restricts the old Google Maps key, which is
+  in the public repo's history.
+- The archive's root `.htaccess` (not in this repo) also refuses `..` requests and serves no `connectDB.php`, `config.json`,
+  `*.sql`, `*.log`, `*.md`, `error_log`, `LICENSE*` or composer/package files in any folder.
+
 ## Deploy
 
 Served from the archive host as `<docroot>/SUIBS/` at `https://app.dimensikini.xyz/SUIBS/public/` (the archive's
